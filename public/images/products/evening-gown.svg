@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="p4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7ece5" />
+      <stop offset="100%" stop-color="#d3b8aa" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#p4)" />
+  <circle cx="520" cy="320" r="170" fill="#ffffff" opacity="0.2" />
+  <text x="50%" y="56%" text-anchor="middle" font-family="Inter, sans-serif" font-size="52" fill="#3a3a3a">Evening Gown</text>
+</svg>
