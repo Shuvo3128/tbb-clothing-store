@@ -14,7 +14,7 @@ export default function Navbar() {
             <a href="/" className="text-xl font-semibold tracking-[0.35em] text-slate-950 uppercase">
               TBB
             </a>
-            <p className="text-[10px] uppercase tracking-[0.4em] text-slate-500">The Belles Beauty</p>
+            <p className="text-[15px] uppercase tracking-[0.4em] text-slate-500">The Bella's Beauty</p>
           </div>
 
           <button className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-slate-950 hover:text-slate-950">
@@ -25,12 +25,27 @@ export default function Navbar() {
           </button>
         </div>
 
-        <nav className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm uppercase tracking-[0.3em] text-slate-600">
-          <a href="#" className="transition hover:text-slate-950">Dresses</a>
-          <a href="#" className="transition hover:text-slate-950">Tops</a>
-          <a href="#" className="transition hover:text-slate-950">Kurtis</a>
-          <a href="#" className="transition hover:text-slate-950">Sarees</a>
-          <a href="#" className="transition hover:text-slate-950">Accessories</a>
+        <nav className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-4 py-3 text-xl font-semibold uppercase tracking-[0.3em] text-slate-600">
+          <a href="#" className="group relative transition hover:text-slate-950">
+            Dresses
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-slate-950 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#" className="group relative transition hover:text-slate-950">
+            Tops
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-slate-950 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#" className="group relative transition hover:text-slate-950">
+            Kurtis
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-slate-950 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#" className="group relative transition hover:text-slate-950">
+            Sarees
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-slate-950 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#" className="group relative transition hover:text-slate-950">
+            Accessories
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-slate-950 transition-all duration-300 group-hover:w-full"></span>
+          </a>
         </nav>
       </div>
     </header>

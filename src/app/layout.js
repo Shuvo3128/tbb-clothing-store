@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen bg-slate-50 text-slate-950 antialiased selection:bg-slate-900 selection:text-white">
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1 px-4 py-10 sm:px-6 lg:px-8">
+          <main className="flex-1 px-4 py-20 sm:px-6 lg:px-8">
             {children}
           </main>
           <Footer />

@@ -1,6 +1,6 @@
 export default function CheckoutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 sm:p-8 md:p-10">
         <div className="mb-10 space-y-3 text-center">
           <p className="text-xs uppercase tracking-[0.35em] text-slate-500 sm:text-sm">Checkout</p>
@@ -42,7 +42,7 @@ export default function CheckoutPage() {
           <div className="space-y-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:scale-105 hover:shadow-lg sm:w-auto"
             >
               Place Order
             </button>
@@ -50,7 +50,7 @@ export default function CheckoutPage() {
               href="https://wa.me/15551234567?text=I%20want%20to%20place%20an%20order"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-lg border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-slate-50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-105 hover:shadow-lg sm:w-auto"
             >
               Order via WhatsApp
             </a>
