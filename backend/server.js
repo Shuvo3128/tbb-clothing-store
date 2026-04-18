@@ -1,20 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
 
 // Load environment variables
 dotenv.config();
 
-// Debug: Check if environment variables are loaded
-console.log('Environment variables loaded:');
-console.log('MONGO_URI exists:', !!process.env.MONGO_URI);
-console.log('PORT:', process.env.PORT);
-console.log('NODE_ENV:', process.env.NODE_ENV);
-
-// Connect to database
-connectDB();
+console.log('process.env.MONGO_URI:', process.env.MONGO_URI);
 
 const app = express();
 
@@ -33,7 +26,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     success: true,
     message: 'API is running',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
@@ -42,17 +35,31 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+// Connect to MongoDB and start server
+const startServer = async () => {
+  try {
+    // Connect to MongoDB
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected');
+  } catch (error) {
+    console.error('Database connection error:', error.message);
+    process.exit(1);
+  }
+
+  // Start server only after database connection
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer().catch((err) => {
+  console.error('Server failed to start:', err.message);
+  process.exit(1);
 });
 
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`);
-  // Close server & exit process
-  server.close(() => {
-    process.exit(1);
-  });
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err.message);
+  process.exit(1);
 });
 
 module.exports = app;
