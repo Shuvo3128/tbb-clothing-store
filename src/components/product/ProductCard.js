@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 export default function ProductCard({ product, compact = false }) {
   const coverImage = product.images?.[0] ?? product.image;
+  const productId = product._id || product.slug;
 
   return (
     <article className={`group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-2xl ${compact ? 'p-3' : 'p-5'}`}>
@@ -19,7 +20,7 @@ export default function ProductCard({ product, compact = false }) {
         </div>
         {!compact && (
           <Link
-            href={`/shop/${product.slug}`}
+            href={`/shop/${productId}`}
             className="inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:scale-105 hover:shadow-lg"
           >
             View Details

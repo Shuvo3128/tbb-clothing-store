@@ -1,13 +1,8 @@
-import Link from 'next/link';
-import products from '@/data/products';
+'use client';
+
+import { useEffect, useState } from 'react';
 import ProductDetailsPanel from '@/components/product/ProductDetailsPanel';
 import ProductGallery from '@/components/product/ProductGallery';
-
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
 
 function buildSku(slug) {
   return `TBB-${slug.replace(/-/g, '').toUpperCase()}`;
