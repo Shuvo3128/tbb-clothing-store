@@ -87,32 +87,23 @@ export default function HomePage() {
 
       <AnimatedSection delay={300}>
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 xl:grid-cols-2">
-            <div className="relative h-72 overflow-hidden rounded-[2rem] bg-slate-950">
-              <img
-                src="/images/banners/promo-left.svg"
-                alt="Moments in Elegance"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-slate-950/50" />
-              <div className="absolute inset-0 flex flex-col items-start justify-center p-8 text-white">
-                <p className="text-sm uppercase tracking-[0.35em] text-slate-200">Moments in Elegance</p>
-                <h3 className="mt-4 text-3xl font-semibold sm:text-4xl">Discover refined silhouettes</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { id: 1, image: 'C:\Users\Shuvo\Desktop\TBB\public\images\products\jjjjj.jpg.webp', title: 'SUMMER COLLECTION', subtitle: 'Explore the latest trends' },
+              { id: 2, image: '/images/banners/promo-right.svg', title: 'EVENING WEAR', subtitle: 'Elegance redefined' },
+              { id: 3, image: '/images/banners/promo-left.svg', title: 'ESSENTIALS', subtitle: 'Timeless pieces' },
+            ].map((model) => (
+              <div key={model.id} className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer">
+                <div className="relative h-80 w-full overflow-hidden">
+                  <img src={model.image} alt={model.title} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
+                </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                  <h3 className="text-white text-xl md:text-2xl font-light tracking-[0.2em] uppercase mb-2">{model.title}</h3>
+                  <p className="text-white/80 text-sm font-light tracking-wider">{model.subtitle}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="relative h-72 overflow-hidden rounded-[2rem] bg-slate-950">
-              <img
-                src="/images/banners/promo-right.svg"
-                alt="Bold & Beautiful"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-slate-950/50" />
-              <div className="absolute inset-0 flex flex-col items-start justify-center p-8 text-white">
-                <p className="text-sm uppercase tracking-[0.35em] text-slate-200">Bold & Beautiful</p>
-                <h3 className="mt-4 text-3xl font-semibold sm:text-4xl">Express your modern allure</h3>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
       </AnimatedSection>
