@@ -2,27 +2,33 @@ import ProductGrid from '@/components/product/ProductGrid';
 import HeroSection from '@/components/HeroSection';
 import AnimatedSection from '@/components/AnimatedSection';
 import products from '@/data/products';
+import Link from 'next/link';
 
 const categories = [
   {
     name: 'Dresses',
-    image: '/images/categories/dress.jpg',
+    slug: 'dresses',
+    image: '/images/categories/dressss.webp',
   },
   {
     name: 'Kurtis',
-    image: '/images/categories/kurtis.jpg',
+    slug: 'kurtis',
+    image: '/images/categories/kurtiiii.webp',
   },
   {
     name: 'Sarees',
-    image: '/images/categories/sharee.jpg',
+    slug: 'sarees',
+    image: '/images/categories/shareee.jpg',
   },
   {
     name: 'Tops',
+    slug: 'tops',
     image: '/images/categories/tops.jpg',
   },
   {
     name: 'Accessories',
-    image: '/images/categories/accccre.jpg',
+    slug: 'accessories',
+    image: '/images/categories/acess.jpg',
   },
 ];
 
@@ -64,9 +70,10 @@ export default function HomePage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {categories.map((category) => (
-              <div
+              <Link
                 key={category.name}
-                className="group relative overflow-hidden rounded-[2rem] bg-slate-950"
+                href={`/category/${category.slug}`}
+                className="group relative block overflow-hidden rounded-[2rem] bg-slate-950"
               >
                 <img
                   src={category.image}
@@ -79,7 +86,7 @@ export default function HomePage() {
                     {category.name}
                   </h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

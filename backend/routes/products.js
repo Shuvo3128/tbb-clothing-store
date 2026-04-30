@@ -4,10 +4,18 @@ const { upload } = require('../middleware/upload');
 
 const router = express.Router();
 
-// GET /api/products - Get all products
+// GET /api/products - Get all products (optional category filter)
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
+    const { category } = req.query;
+    let query = {};
+    
+    // Filter by category if provided
+    if (category) {
+      query.category = category.toLowerCase();
+    }
+    
+    const products = await Product.find(query).sort({ createdAt: -1 });
     res.json({
       success: true,
       count: products.length,

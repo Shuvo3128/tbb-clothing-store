@@ -20,6 +20,7 @@ app.use(cors());
 
 // Routes
 app.use('/api/products', require('./routes/products'));
+app.use('/api/auth', require('./routes/auth'));
 
 // Health check
 app.get('/api/health', (req, res) => {

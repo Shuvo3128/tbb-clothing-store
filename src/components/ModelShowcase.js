@@ -2,6 +2,11 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import './globals.css';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const models = [
   {
@@ -24,7 +29,37 @@ const models = [
   },
 ];
 
+const navLinks = [
+  { href: '/shop?category=dresses', label: 'Dresses' },
+  { href: '/shop?category=tops', label: 'Tops' },
+  { href: '/shop?category=kurtis', label: 'Kurtis' },
+  { href: '/shop?category=sarees', label: 'Sarees' },
+  { href: '/shop?category=accessories', label: 'Accessories' },
+];
+
+const GOLD = '#c9a96e';
+
+function Icon({ children, label }) {
+  return (
+    <button 
+      className="group relative flex h-11 w-11 items-center justify-center text-slate-500 transition-all duration-300 hover:text-[#c9a96e]"
+      aria-label={label}
+    >
+      {children}
+    </button>
+  );
+}
+
 export default function ModelShowcase() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="py-16 px-4 md:px-8 lg:px-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -58,5 +93,26 @@ export default function ModelShowcase() {
         ))}
       </div>
     </section>
+  );
+}
+
+export const metadata = {
+  title: 'Clothing Store',
+  description: 'A modern clothing store built with Next.js',
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased selection:bg-slate-900 selection:text-white">
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1 pt-24">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </body>
+    </html>
   );
 }
