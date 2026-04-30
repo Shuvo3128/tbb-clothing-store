@@ -6,23 +6,23 @@ import products from '@/data/products';
 const categories = [
   {
     name: 'Dresses',
-    image: '/images/categories/dresses.svg',
+    image: '/images/categories/dress.jpg',
   },
   {
     name: 'Kurtis',
-    image: '/images/categories/kurtis.svg',
+    image: '/images/categories/kurtis.jpg',
   },
   {
     name: 'Sarees',
-    image: '/images/categories/sarees.svg',
+    image: '/images/categories/sharee.jpg',
   },
   {
     name: 'Tops',
-    image: '/images/categories/tops.svg',
+    image: '/images/categories/tops.jpg',
   },
   {
     name: 'Accessories',
-    image: '/images/categories/accessories.svg',
+    image: '/images/categories/accccre.jpg',
   },
 ];
 
@@ -89,9 +89,9 @@ export default function HomePage() {
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { id: 1, image: 'C:\Users\Shuvo\Desktop\TBB\public\images\products\jjjjj.jpg.webp', title: 'SUMMER COLLECTION', subtitle: 'Explore the latest trends' },
-              { id: 2, image: '/images/banners/promo-right.svg', title: 'EVENING WEAR', subtitle: 'Elegance redefined' },
-              { id: 3, image: '/images/banners/promo-left.svg', title: 'ESSENTIALS', subtitle: 'Timeless pieces' },
+              { id: 1, image: '/images/products/jjjjj.jpg.webp', title: 'SUMMER COLLECTION', subtitle: 'Explore the latest trends' },
+              { id: 2, image: '/images/products/evening.jpg', title: 'EVENING WEAR', subtitle: 'Elegance redefined' },
+              { id: 3, image: '/images/products/night.webp', title: 'ESSENTIALS', subtitle: 'Timeless pieces' },
             ].map((model) => (
               <div key={model.id} className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer">
                 <div className="relative h-80 w-full overflow-hidden">

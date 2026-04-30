@@ -1,15 +1,17 @@
 import Link from 'next/link';
 
 export default function ProductCard({ product, compact = false }) {
-  const coverImage = product.images?.[0] ?? product.image;
+  const coverImage = product.images?.[0] ?? product.image ?? '/images/products/placeholder.svg';
   const productId = product._id || product.slug;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <article className={`group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-2xl ${compact ? 'p-3' : 'p-5'}`}>
       <div className={`aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-slate-100 ${compact ? 'mb-3' : ''}`}>
         <img
-          src={coverImage}
+          src={imgError ? '/images/products/placeholder.svg' : coverImage}
           alt={product.name}
+          onError={() => setImgError(true)}
           className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
         />
       </div>
